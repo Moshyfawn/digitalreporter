@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import MainPage from './MainPage'
+import NewsPage from './NewsPage'
 import { getCards } from '../../store/cards/';
 import {getLgCardsSelector, getMdCardsSelector, getSmCardsSelector} from 'src/store/cards/cardsSelectors'
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = {
     getCards
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
+export default connect(mapStateToProps, mapDispatchToProps)(NewsPage)

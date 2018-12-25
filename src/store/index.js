@@ -6,7 +6,8 @@ import { createLogger } from 'redux-logger'
 
 import rootSaga from './saga'
 
-import example from './example'
+import userReducer from './user';
+import cardsReducer from './cards'
 
 const logger = createLogger({
   collapsed: true,
@@ -27,7 +28,7 @@ export default function configureStore () {
   )
 
   const rootReducer = enableBatching(combineReducers({
-    example
+    userReducer, cardsReducer
   }))
 
   const store = createStore(rootReducer, enhancer)

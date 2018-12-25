@@ -22,9 +22,10 @@ export class App extends Component {
     }
 
     return (
-      <ThemeProvider theme={theme}>
-        <Router />
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Router />
+        </ThemeProvider>
+      
     )
   }
 }

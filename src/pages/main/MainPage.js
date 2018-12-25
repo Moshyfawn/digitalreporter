@@ -1,18 +1,40 @@
-import React, { PureComponent, Fragment} from 'react'
+import React, { PureComponent, Fragment } from 'react'
+
+import PageWrapper from '../../modals/pageWraper';
+import PageDivider from '../../elements/dividers/pageDivider';
+import CardMinList from '../../modals/lists/cardMinList';
+import CardList from '../../modals/lists/cardList';
+import Button from '../../elements/links/button';
 
 class MainPage extends PureComponent {
-
-  render () {
-    return (
-      <Fragment>
-        <h1>Hello</h1>
-        <h2>World</h2>
-      </Fragment>
-    )
-  }
+  
+componentDidMount = () => {
+  this.props.getCards();
 }
 
-MainPage.propTypes = {
+  render () {
+    const { lgCards, mdCards, smCards } = this.props
+    
+// change props.to
+    return (
+      <PageWrapper>
+          <Fragment>
+            {smCards.length > 0 && <CardMinList cards={smCards} />}
+            <PageDivider isEmpty />
+            {lgCards.length > 0 && <CardList to='' size='lg' cards={lgCards} />}
+            {mdCards.length > 0 && <CardList to='' size='md' cards={mdCards} />}
+            <PageDivider isEmpty />
+            {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
+            {smCards.length > 0 && <CardMinList cards={smCards} />}
+            <Button name='Все статьи' />
+            <PageDivider text='Популярное' />
+            {mdCards.length > 0 && <CardList to='' size='md' cards={mdCards} />}
+            {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
+            {smCards.length > 0 && <CardMinList cards={smCards} />}
+          </Fragment>
+      </PageWrapper>
+    )
+  }
 }
 
 export default MainPage

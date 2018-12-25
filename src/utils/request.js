@@ -3,7 +3,7 @@ import axios from 'axios'
 const request = axios.create()
 
 // request.defaults.baseURL = `${process.env.API_URL}`
-export const BASE_URL = `https://api.pragmatico.io/api/v1`
+export const BASE_URL = `https://jsonplaceholder.typicode.com/`
 request.defaults.baseURL = BASE_URL
 request.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8'
 request.defaults.headers.post['X-Requested-With'] = 'XMLHttpRequest'
