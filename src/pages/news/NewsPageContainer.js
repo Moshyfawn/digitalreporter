@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import NewsPage from './NewsPage'
-import { getCards } from '../../store/cards/';
-import {getLgCardsSelector, getMdCardsSelector, getSmCardsSelector} from 'src/store/cards/cardsSelectors'
+import { getArticles } from '../../store/articles/';
+import {getLgArticlesSelector, getMdArticlesSelector, getSmArticlesSelector} from 'src/store/articles/articlesSelectors'
 
 const mapStateToProps = (state) => ({
-    cards: state.cardsReducer.cards,
-    lgCards: getLgCardsSelector(state),
-    mdCards: getMdCardsSelector(state),
-    smCards: getSmCardsSelector(state),
-    isLoading: state.cardsReducer.isLoading
+    cards: state.articlesReducer.articles,
+    lgCards: getLgArticlesSelector(state),
+    mdCards: getMdArticlesSelector(state),
+    smCards: getSmArticlesSelector(state),
+    isLoading: state.articlesReducer.isLoading
 })
 
 const mapDispatchToProps = {
-    getCards
+    getArticles
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsPage)

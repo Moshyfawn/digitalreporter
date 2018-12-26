@@ -9,7 +9,7 @@ import Button from '../../elements/links/button';
 class NewsPage extends PureComponent {
 
   componentDidMount = () => {
-    this.props.getCards();
+    this.props.getArticles();
   }
 // CardList props.text/imgPath will come from a backend i.e text='' will become irrelevant !IMPORTANT
 // CardList && CardMinList will get an object 'cards' with an array of cards data

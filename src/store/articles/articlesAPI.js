@@ -1,9 +1,9 @@
 // import { get, post } from 'src/utils/request';
 
-export const _getCards = () =>
-    // get('/cards', {cards}).then(response => response.data)
+export const _getArticles = () =>
+    // get('/articles', {articles}).then(response => response.data)
     // ({
-    //     cards: [{
+    //     articles: [{
     //         id: 1,
     //         img: 'https://via.placeholder.com/480/000000/A9A9A9/',
     //         title: 'Кинематограф мёртв, и это вы его умертвили!',
@@ -57,7 +57,7 @@ export const _getCards = () =>
     //     }]
     // })
 
-    // all cards items here:
+    // all articles items here:
 ([
   {
     section: 'Новости',   

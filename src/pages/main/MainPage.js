@@ -9,7 +9,7 @@ import Button from '../../elements/links/button';
 class MainPage extends PureComponent {
   
 componentDidMount = () => {
-  this.props.getCards();
+  this.props.getArticles();
 }
 
   render () {
