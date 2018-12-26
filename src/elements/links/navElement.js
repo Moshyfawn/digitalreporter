@@ -1,13 +1,13 @@
 import React, { PureComponent, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 import { ifProp } from 'styled-tools';
 
 class NavElement extends PureComponent {
     render() {
         return (
-            <NavLinkStyled exact to={this.props.to} danger={this.props.danger} footer={this.props.footer} card={this.props.card} text={this.props.text}>
+            <NavLinkStyled exact to={this.props.to} danger={this.props.danger} footer={this.props.footer} card={this.props.card} text={this.props.text} section={this.props.section}>
                 {this.props.section ?
                     <Fragment>{this.props.section}</Fragment> :
                     <Fragment>{this.props.text}</Fragment>}
@@ -17,8 +17,8 @@ class NavElement extends PureComponent {
 };
 
 NavElement.propTypes = {
-    to: PropTypes.string.isRequired,
-    section: PropTypes.string.isRequired
+    to: PropTypes.string,
+    section: PropTypes.string
 }
 
 NavElement.defaultProps = {
@@ -42,7 +42,7 @@ const NavLinkStyled = styled(NavLink)`
              )
         };
     padding: ${ifProp({ card : true }, '', '0 8px 3px 8px' )};
-    
+
     &::after {
         display: block;
         padding-top: 4px;
@@ -59,14 +59,37 @@ const NavLinkStyled = styled(NavLink)`
                                 )
                         )
                     };
+
         transform:  ${ifProp({ card : true }, `scaleX(1)`, `scaleX(0)`)};
         transition: transform 250ms ease-in-out;
-        
     }
-
+    
     &:hover::after {
         transform: scaleX(1);
     }
+
+    ${ifProp('card', css`
+
+        &::before {
+            display: block;
+            padding-bottom: 4px;
+        
+            content: '';
+            border-top: 2px solid #ffffff;
+            transform: scaleX(0);
+            transition: transform 0.25s ease-in-out;
+        }
+        
+        &:hover::before {
+            transform: scaleX(1);
+            transition: transform 0.1s ease-in-out;
+
+    `)}
+    
+
+
+
+    
 `;
 
 export default NavElement;

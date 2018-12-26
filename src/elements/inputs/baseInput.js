@@ -9,6 +9,10 @@ class BaseInput extends PureComponent {
     };
 };
 
+BaseInput.defaultProps = {
+    value: ''
+}
+
 const Input = styled.input`
     border: none;
     font-size: 20px;

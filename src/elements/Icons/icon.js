@@ -14,7 +14,7 @@ class Icon extends PureComponent {
 }
 
 Icon.propTypes = {
-    src: PropTypes.object.isRequired,
+    src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired
 };

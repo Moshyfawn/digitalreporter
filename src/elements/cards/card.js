@@ -6,13 +6,29 @@ import { switchProp } from 'styled-tools';
 import NavElement from '../links/navElement';
 
 class Card extends PureComponent {
+
+    getPath = () => {
+        switch (this.props.section) {
+            case 'Новости':
+                return '/news';
+            case 'Рецензии':
+                return '/reviews';
+            case 'Мнение':
+                return '/meaning';          
+            case 'Лайфхак':
+                return '/lifehack';
+            default:
+                return '/';
+    }
+}
+
     render() {
-        const { img, to, size, title, body, date, section } = this.props
+        const { img, size, title, body, date, section } = this.props
         return ( 
             <Container img={img} size={size}>
                 {size !== 'sm' &&
                     <NavElementStyled>
-                        <NavElement card to={to} section={section} />
+                        <NavElement card to={this.getPath()} section={section} />
                     </NavElementStyled>
                 }
                <Article size={size}>
@@ -32,7 +48,7 @@ class Card extends PureComponent {
 };
 
 Card.propTypes = {
-    img: PropTypes.object.isRequired,
+    img: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired
 };
 
@@ -46,6 +62,8 @@ const Container = styled.div`
     padding: 20px 25px;
     margin: 10px 20px 10px 0;
     color: #ffffff;
+    box-shadow: 0 black;
+    transition:  box-shadow 0.1s ease-in-out;
 
     ${switchProp("size", {
     lg:`
@@ -68,8 +86,8 @@ const Container = styled.div`
     &:hover {
         filter: grayscale(70%);
         cursor: pointer; 
-        box-shadow: 0 0 10px black;
-        transition: all 0.1s ease-in-out;
+        box-shadow: 0 3px 8px black;
+        transition: box-shadow,  0.1s ease-in-out;
     }
 `;
 

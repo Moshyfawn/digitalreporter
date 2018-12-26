@@ -1,13 +1,10 @@
 import React, { PureComponent } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import { ifProp } from 'styled-tools';
 
-class exitButton extends PureComponent {
+class ExitButton extends PureComponent {
     render() {
         return (
-            <Button>{this.props.text}</Button>
+            <Button type='button' onClick={this.props.onClick} >{this.props.text}</Button>
         );
     };
 };
@@ -38,4 +35,4 @@ const Button = styled.div`
 
 `;
 
-export default exitButton;
+export default ExitButton;

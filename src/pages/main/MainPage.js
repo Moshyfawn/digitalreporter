@@ -21,14 +21,14 @@ componentDidMount = () => {
           <Fragment>
             {smCards.length > 0 && <CardMinList cards={smCards} />}
             <PageDivider isEmpty />
-            {lgCards.length > 0 && <CardList to='' size='lg' cards={lgCards} />}
-            {mdCards.length > 0 && <CardList to='' size='md' cards={mdCards} />}
+            {lgCards.length > 0 && <CardList size='lg' cards={lgCards} />}
+            {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
             <PageDivider isEmpty />
             {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
             {smCards.length > 0 && <CardMinList cards={smCards} />}
             <Button name='Все статьи' />
             <PageDivider text='Популярное' />
-            {mdCards.length > 0 && <CardList to='' size='md' cards={mdCards} />}
+            {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
             {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
             {smCards.length > 0 && <CardMinList cards={smCards} />}
           </Fragment>
