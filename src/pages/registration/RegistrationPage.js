@@ -7,7 +7,7 @@ class RegistrationPage extends PureComponent {
 
     componentDidUpdate = () => {
         if (this.props.isAuthenticated) {
-            this.props.history.push('/')
+            this.props.history.push('/profile')
         }
     }
     

@@ -60,8 +60,8 @@ const NavLinkStyled = styled(NavLink)`
                         )
                     };
 
-        transform:  ${ifProp({ card : true }, `scaleX(1)`, `scaleX(0)`)};
-        transition: transform 250ms ease-in-out;
+        transform:  ${ifProp({ card : true }, `scaleX(0)`, `scaleX(0)`)};
+        transition: transform 0.25s ease-in-out;
     }
     
     &:hover::after {
@@ -82,7 +82,7 @@ const NavLinkStyled = styled(NavLink)`
         
         &:hover::before {
             transform: scaleX(1);
-            transition: transform 0.1s ease-in-out;
+            transition: transform 0.25s ease-in-out;
 
     `)}
     

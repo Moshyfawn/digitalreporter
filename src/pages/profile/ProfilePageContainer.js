@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import PropfilePage from './PropfilePage'
+import ProfilePage from './ProfilePage'
 
 const mapStateToProps = (state) => ({
 })
@@ -7,4 +7,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PropfilePage)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
