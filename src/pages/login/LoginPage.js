@@ -5,19 +5,19 @@ import LoginForm from '../../modals/auth/loginForm';
 
 class LoginPage extends PureComponent {
 
-    componentDidUpdate = () => {
-        if (this.props.isAuthenticated) {
-            this.props.history.push('/profile')
-        }
+  componentDidUpdate = () => {
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/profile')
     }
+  }
 
-    render() {
-        return (
-            <PageWrapper>
-                <LoginForm onSend={this.props.getUser}/>
-            </PageWrapper>
-        )
-    }
+  render() {
+    return (
+      <PageWrapper>
+        <LoginForm onSend={this.props.getUser}/>
+      </PageWrapper>
+    )
+  }
 }
 
 

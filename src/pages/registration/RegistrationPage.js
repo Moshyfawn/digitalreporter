@@ -5,19 +5,19 @@ import RegistrationForm from '../../modals/auth/registrationForm';
 
 class RegistrationPage extends PureComponent {
 
-    componentDidUpdate = () => {
-        if (this.props.isAuthenticated) {
-            this.props.history.push('/profile')
-        }
+  componentDidUpdate = () => {
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/profile')
     }
+  }
     
-    render() {
-        return (
-            <PageWrapper>
-                    <RegistrationForm onSend={this.props.createUser} />
-            </PageWrapper>
-        )
-    }
+  render() {
+    return (
+      <PageWrapper>
+        <RegistrationForm onSend={this.props.createUser} />
+      </PageWrapper>
+    )
+  }
 }
 
 
