@@ -1,5 +1,6 @@
 import { takeLatest, put, call, all } from 'redux-saga/effects';
-import { CREATE_USER,
+import { 
+  CREATE_USER,
   createUserSuccess,
   createUserFail,
   GET_USER,
@@ -28,6 +29,7 @@ function * getUserSaga () {
 
 export default function * () {
   yield all([
-    takeLatest(CREATE_USER, createUserSaga, GET_USER, getUserSaga)
+    takeLatest(CREATE_USER, createUserSaga),
+    takeLatest(GET_USER, getUserSaga)
   ])
 }

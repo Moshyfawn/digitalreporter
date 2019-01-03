@@ -8,3 +8,5 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage)
+
+// TODO: data from BE (mock in component rn)

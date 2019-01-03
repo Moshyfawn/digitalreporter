@@ -16,8 +16,8 @@ export const getLgArticlesSelector = createSelector(
 export const getMdArticlesSelector = createSelector(
   getArticlesSelector,
   (articles) => {
-    if(articles[0]) {
-      return articles.slice(0,2)
+    if(articles[3]) {
+      return articles.slice(1,3)
     } else {
       return []
     }
@@ -27,10 +27,44 @@ export const getMdArticlesSelector = createSelector(
 export const getSmArticlesSelector = createSelector(
   getArticlesSelector,
   (articles) => {
-    if(articles[0]) {
-      return articles.slice(0,4)
+    if(articles[8]) {
+      return articles.slice(4,8)
     } else {
       return []
     }
+  }
+)
+
+export const getPopularArticlesSelector = createSelector(
+  getArticlesSelector,
+  (articles) => {
+    if(articles[6]) {
+      return articles.slice(0,6)
+    } else {
+      return []
+    }
+  }
+)
+
+export const getMoreArticlesSelector = createSelector(
+  getArticlesSelector,
+  (articles) => {
+    if(articles[3]) {
+      return articles.slice(0,3)
+    } else {
+      return []
+    }
+  }
+)
+
+// creates an array of articles grouped by section
+
+export const getSectionArticlesSelector = createSelector(
+  getArticlesSelector,
+  (articles) => {
+    var result = articles.filter(item => {
+      return item.section === 'Новости'
+    })
+    return result
   }
 )
