@@ -4,10 +4,10 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import PageWrapper from '../../modals/pageWraper';
 import Article from 'src/modals/articles/article';
 import PopularList from 'src/modals/lists/popularList';
-import ShareList from 'src/modals/lists/shareList';
 import PageDivider from 'src/elements/dividers/pageDivider';
 import CardList from 'src/modals/lists/cardList';
 import CardMinList from 'src/modals/lists/cardMinList';
+import ShareButton from 'src/elements/buttons/ShareButton'
 
 class ArticlePage extends PureComponent {
   // this.props.match.params.id
@@ -48,7 +48,7 @@ class ArticlePage extends PureComponent {
                   <PageDivider empty />
                 </Row>
                 <Row>
-                  <ShareList />
+                  <ShareButton media={['vk', 'facebook', 'twitter', 'ok']} />
                 </Row>
                 <Row>
                   <PageDivider text='ещё' />

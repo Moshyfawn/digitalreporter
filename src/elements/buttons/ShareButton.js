@@ -1,195 +1,99 @@
-import React, { PureComponent, Fragment } from 'react';
-import styled from 'styled-components';
-import { ifProp } from 'styled-tools';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import {
-  FacebookShareButton, FacebookIcon, FacebookShareCount,
-  VKShareButton, VKIcon, VKShareCount,
-  OKShareButton, OKIcon, OKShareCount,
-  TwitterShareButton, TwitterIcon,
+  FacebookIcon,
+  TwitterIcon,
+  VKIcon,
+  OKIcon,
+  FacebookShareButton,
+  TwitterShareButton,
+  VKShareButton,
+  OKShareButton
 } from 'react-share';
+import styled from 'styled-components';
 
-const bgFill = {'fill' : '#4560A100'};
-const txt = 'Поделиться';
-
-class ShareButton extends PureComponent {
+class IconLink extends PureComponent {
+  renderSwitch = (item) => {
+    // social media logo params
+    const bgFill = {'fill' : '#374a6700'};
+    const strokeFill = '#ffffff';
+    const logoSize = 60;
+    const shareUrl = window.location.href;
+    switch(item) {
+      case 'facebook':
+        return (
+          <FacebookShareButton url={shareUrl}>
+            <FacebookIcon size={logoSize} iconBgStyle={bgFill} logoFillColor={strokeFill} />
+          </FacebookShareButton>
+        );
+      case 'twitter':
+        return (
+          <TwitterShareButton url={shareUrl}>
+            <TwitterIcon size={logoSize} iconBgStyle={bgFill} logoFillColor={strokeFill} />
+          </TwitterShareButton>
+        );
+      case 'vk':
+        return  (
+          <VKShareButton url={shareUrl}>
+            <VKIcon size={logoSize} iconBgStyle={bgFill} logoFillColor={strokeFill} />
+          </VKShareButton>
+        );
+      case 'ok':
+        return (
+          <OKShareButton url={shareUrl}>
+            <OKIcon size={logoSize} iconBgStyle={bgFill} logoFillColor={strokeFill} />
+          </OKShareButton>
+        );
+      default:
+        return null;
+    }
+  }
   render() {
-    const { vk, facebook, ok, twitter } = this.props;
+    const { media } = this.props;
+    const shareText = 'Поделиться'
     return (
-      <Fragment>
-        {facebook &&
-          <FacebookShareButtonStyled url={window.location.href} >
-            <Display facebook={facebook}>
-              <FacebookIcon iconBgStyle={bgFill} />
-              <Text>{txt}</Text>
-            </Display>
-            <FacebookShareCountStyled facebook={facebook} url={window.location.href}/>
-          </FacebookShareButtonStyled>
+      <Container>
+        {media.map(item => (
+          <SocialLink key={item}>
+            {this.renderSwitch(item)}
+            <Text>{shareText}</Text>
+          </SocialLink>
+          ))
         }
-        {vk &&
-          <VKShareButtonStyled url={window.location.href}>
-            <Display vk={vk}>
-              <VKIcon iconBgStyle={bgFill} />
-              <Text>{txt}</Text>
-            </Display>
-            <VKShareCountStyled vk={vk} url={window.location.href}/>
-          </VKShareButtonStyled>
-        }
-        {ok &&
-          <OKShareButtonStyled url={window.location.href}>
-            <Display ok={ok}>
-              <OKIcon iconBgStyle={bgFill} />
-              <Text>{txt}</Text>
-            </Display>
-            <OKShareCountStyled ok={ok} url={window.location.href}/>
-          </OKShareButtonStyled>
-        }
-        {twitter &&
-          <TwitterShareButtonStyled url={window.location.href}>
-            <Display twitter={twitter}>
-              <TwitterIcon iconBgStyle={bgFill} />
-              <Text>{txt}</Text>
-            </Display>
-          </TwitterShareButtonStyled>
-        }
-        </Fragment>
-    )
-  }
-}
-// {
-//   "width": "64",
-//   "height": "64",
-//   "fill": "#45668e",
-//   "style": {}
-// }
-const Text = styled.div`
-  font-size: 18px;
-  color: #ffffff;
-  display: contents;
+      </Container>
+    );
+  };
+};
+// href={`https://www.${item}.com/`}
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color
 `;
 
-const Display = styled.div`
-  background-color: ${ifProp(
-                      { vk : true }, '#4460a0',
-                        ifProp(
-                          { facebook : true }, '#4c6c91',
-                            ifProp(
-                              { ok : true }, '#f68634',
-                                '#55acee'
-                              )
-                        )
-                      )
-                    };
+const SocialLink = styled.a`
   display: flex;
   align-items: center;
-  padding-right: 15px;
-  width: 64px;
-  /* transition: width 0.3s 0.2s ease-out, padding-right 0.3s 0.2s ease-out; */
-  transition: width 0.3s 0.2s ease-out; 
-
+  overflow: hidden;
+  width: 60px;
+  min-width: 60px;
+  max-width: 185px;
+  flex: 0;
+  transition: flex 2s ease-in-out;
   &:hover {
-    width: 180px;
-    /* transition: width 0.3s 0.2s ease-in, padding-right 0.3s 0.2s ease-in; */
-    transition: width 0.3s 0.2s ease-in;
+    flex: 1;
   }
-
-  
+  background-color: blue;
 `;
 
-const VKShareCountStyled = styled(VKShareCount)`
-  font-size: 18px;
-  color: #ffffff;
-  background-color: ${ifProp(
-                    { vk : true }, '#4460a0',
-                      ifProp(
-                        { facebook : true }, '#4c6c91',
-                          ifProp(
-                            { ok : true }, '#f68634',
-                              '#55acee'
-                            )
-                      )
-                    )
-                  };
-  margin-left: 1px;
-  padding: 0 15px;
-  display: flex;
-  align-items: center;
+const Text = styled.div`
+  color: white;
 `;
 
-const VKShareButtonStyled = styled(VKShareButton)`
-  display: flex;
-  margin-right: 20px;
+IconLink.propTypes = {
+  item: PropTypes.oneOf(['facebook', 'twitter', 'telegram', 'pinterest', 'vk', 'reddit', 'tumbler', 'mail'])
+}
 
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-
-const FacebookShareCountStyled = styled(FacebookShareCount)`
-  font-size: 18px;
-  color: #ffffff;
-    background-color: ${ifProp(
-                      { vk : true }, '#4460a0',
-                        ifProp(
-                          { facebook : true }, '#4c6c91',
-                            ifProp(
-                              { ok : true }, '#f68634',
-                                '#55acee'
-                              )
-                        )
-                      )
-                    };
-  margin-left: 1px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-`;
-
-const FacebookShareButtonStyled = styled(FacebookShareButton)`
-  display: flex;
-  margin-right: 20px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-const OKShareCountStyled = styled(OKShareCount)`
-  font-size: 18px;
-  color: #ffffff;
-    background-color: ${ifProp(
-                      { vk : true }, '#4460a0',
-                        ifProp(
-                          { facebook : true }, '#4c6c91',
-                            ifProp(
-                              { ok : true }, '#f68634',
-                                '#55acee'
-                              )
-                        )
-                      )
-                    };
-  margin-left: 1px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-`;
-
-const OKShareButtonStyled = styled(OKShareButton)`
-  display: flex;
-  margin-right: 20px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-const TwitterShareButtonStyled = styled(TwitterShareButton)`
-  display: flex;
-  margin-right: 20px;
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-export default ShareButton;
+export default IconLink;
