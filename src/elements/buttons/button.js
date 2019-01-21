@@ -5,7 +5,11 @@ import { switchProp } from 'styled-tools';
 class Button extends PureComponent {
   render() {
     return (
-      <ButtonStyled type='submit' disabled={this.props.disabled} name={this.props.name}><span>{this.props.name}</span></ButtonStyled>
+      <ButtonStyled type='submit' disabled={this.props.disabled} name={this.props.name}>
+        <span>
+          {this.props.name}
+        </span>
+      </ButtonStyled>
     );
   };
 };

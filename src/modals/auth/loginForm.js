@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Yup from 'src/utils/yup';
 import styled from 'styled-components';
-import { ifProp } from 'styled-tools';
+import { ifProp, prop } from 'styled-tools';
 
 import BaseForm from 'src/elements/forms/BaseForm';
 import InputGroup from 'src/elements/inputs/inputGroup';
@@ -107,5 +107,5 @@ const Forget = styled.p`
   justify-content: center;
   font-size: 13px;
   font-weight: 300;
-  color: #9b9b9b;
+  color: ${prop('theme.colors.primaryGrey')};
 `;

@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { switchProp } from 'styled-tools';
+import { switchProp, prop } from 'styled-tools';
 import { NavLink } from 'react-router-dom';
 
 import NavElement from '../links/navElement';
@@ -67,7 +67,7 @@ const Container = styled(NavLink)`
   box-shadow: 0 black;
   transition:  box-shadow 0.1s ease-in-out;
   filter: grayscale(50%);
-  box-shadow: 0 0 200px rgba(0,0,0,0) inset;
+  box-shadow: ${prop('theme.shadows.cardShadow')};
   transition: filter 0.1s ease-in-out;
 
   ${switchProp("size", {

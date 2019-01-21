@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import styled from 'styled-components';
-
+import { prop } from 'styled-tools';
 
 
 class Article extends PureComponent {
@@ -36,7 +36,7 @@ const Date = styled.div`
 `;
 
 const Section = styled.div`
- color: #d3241c;
+ color: ${prop('theme.colors.danger')};
  margin-right: 12px;
 `;
 

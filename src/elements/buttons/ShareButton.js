@@ -69,8 +69,7 @@ class IconLink extends PureComponent {
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  background-color
+  justify-content: space-around;
 `;
 
 const SocialLink = styled.a`
@@ -81,7 +80,7 @@ const SocialLink = styled.a`
   min-width: 60px;
   max-width: 185px;
   flex: 0;
-  transition: flex 2s ease-in-out;
+  transition: flex 1s ease-in-out;
   &:hover {
     flex: 1;
   }

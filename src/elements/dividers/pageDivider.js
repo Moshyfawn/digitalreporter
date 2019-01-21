@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { ifProp } from 'styled-tools';
+import { ifProp, prop } from 'styled-tools';
 
 class PageDivider extends PureComponent {
   render() {
@@ -21,7 +21,7 @@ const Line = styled.div`
 	flex-basis: 100%;
   align-items: center;
   justify-content: center;
-  color: #9b9b9b;
+  color: ${prop('theme.colors.primaryGrey')};
   font-family: Lora;
   font-weight: 400;
   font-size: 23px;
@@ -34,7 +34,7 @@ const Line = styled.div`
   &::before, &::after {
     content: '';
     flex-grow: 1;
-    background: #9b9b9b;
+    background: ${prop('theme.colors.primaryGrey')};
     height: 1px;
     font-size: 0px;
     line-height: 0px; 

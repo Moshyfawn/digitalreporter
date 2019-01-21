@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { prop } from 'styled-tools';
 
 class Avatar extends PureComponent {
   render() { 
@@ -20,7 +21,7 @@ const Container = styled.div`
 
 const Outline = styled.div`
   font-size: 38px;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${prop('theme.colors.primaryGrey')};
   border-radius: 100%;
   display: inline;
   justify-content: center;
@@ -29,7 +30,7 @@ const Outline = styled.div`
 `;
 
 const Text = styled.div`
-  color: #9b9b9b;
+  color: ${prop('theme.colors.primaryGrey')};
   font-weight: 300;
   line-height: 1.1;
 `;

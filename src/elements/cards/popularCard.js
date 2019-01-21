@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { prop } from 'styled-tools';
 
 // maybe merge popularCard with CardMin
 class PopularCard extends PureComponent {
@@ -39,7 +40,7 @@ const NavLinkStyled = styled(NavLink)`
 `;
 
 const Section = styled.div`
-  color: #d3241c;
+  color: ${prop('theme.colors.danger')};
   padding-bottom: 8px;
 `;
 
