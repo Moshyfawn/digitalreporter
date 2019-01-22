@@ -64,11 +64,9 @@ const Container = styled(NavLink)`
   padding: 20px 25px;
   margin: 10px 20px 10px 0;
   color: #ffffff;
-  box-shadow: 0 black;
-  transition:  box-shadow 0.1s ease-in-out;
-  filter: grayscale(50%);
-  box-shadow: ${prop('theme.shadows.cardShadow')};
-  transition: filter 0.1s ease-in-out;
+  filter: grayscale(20%);
+  box-shadow: none;
+  transition: box-shadow 0.1s ease-in-out, filter 0.1s ease-in-out;
 
   ${switchProp("size", {
     lg:`
@@ -90,8 +88,7 @@ const Container = styled(NavLink)`
 /* Use colored pics to view filters graphics effect */
   &:hover {
     filter: grayscale(0);
-    box-shadow: 0 0 200px rgba(0,0,0,0.4) inset;
-    transition: filter 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    box-shadow: ${prop('theme.shadows.cardShadow')};
     cursor: pointer;
   }
 `;

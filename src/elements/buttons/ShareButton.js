@@ -15,7 +15,7 @@ import { switchProp, prop } from 'styled-tools';
 
 class IconLink extends PureComponent {
   renderSwitch = (item) => {
-    // social media logo params
+    // social media params
     const bgFill = {'fill' : '#374a6700'};
     const strokeFill = '#ffffff';
     const logoSize = 60;

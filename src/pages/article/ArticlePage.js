@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import PageWrapper from '../../modals/pageWraper';
 import Article from 'src/modals/articles/article';
 import PopularList from 'src/modals/lists/popularList';
-import PageDivider from 'src/elements/dividers/pageDivider';
+import Divider from 'src/elements/markup/divider';
 import CardList from 'src/modals/lists/cardList';
 import CardMinList from 'src/modals/lists/cardMinList';
 import ShareButton from 'src/elements/buttons/ShareButton'
@@ -39,19 +39,19 @@ class ArticlePage extends PureComponent {
                   <Article article={article} articles={articles} />
                 </Row>
                 <Row>
-                  <PageDivider text='Материалы'/>
+                  <Divider>Материалы</Divider>
                 </Row>
                 <Row center='lg'>
                   <div>This place needs to contain 'materials' (film tags?)</div>
                 </Row>
                 <Row>
-                  <PageDivider empty />
+                  <Divider />
                 </Row>
                 <Row>
                   <ShareButton media={['vk', 'facebook', 'twitter', 'ok']} />
                 </Row>
                 <Row>
-                  <PageDivider text='ещё' />
+                  <Divider>Ещё</Divider>
                 </Row>
                 <Row>
                   {moreArticles.length > 0 && <CardList to={'/news'} size='md' cards={moreArticles} more/>}

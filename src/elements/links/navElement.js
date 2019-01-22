@@ -6,11 +6,12 @@ import { ifProp } from 'styled-tools';
 
 class NavElement extends PureComponent {
   render() {
+    const { to, danger, footer, card, text, section } = this.props;
     return (
-      <NavLinkStyled exact to={this.props.to} danger={this.props.danger} footer={this.props.footer} card={this.props.card} text={this.props.text} section={this.props.section}>
-        {this.props.section 
-          ? this.props.section 
-          : this.props.text
+      <NavLinkStyled exact to={to} danger={danger} footer={footer} card={card} text={text} section={section}>
+        {section 
+          ? section 
+          : text
         }
       </NavLinkStyled>
     );
