@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { prop } from 'styled-tools';
+import { ifProp, prop } from 'styled-tools';
 
 class Divider extends PureComponent {
   render() {
+    const { children } = this.props;
     return (
       <Line>
-        {this.props.children &&
+        {children &&
           <Content>
-            {this.props.children} 
+            {children}
           </Content>  
         }
       </Line>
@@ -25,7 +26,7 @@ const Line = styled.div`
   justify-content: center;
   color: #9b9b9b;
   margin: 10px auto;
-  width: 100%;
+  width: 40%;
   
    
     

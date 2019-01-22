@@ -54,10 +54,10 @@ class ArticlePage extends PureComponent {
                   <Divider>Ещё</Divider>
                 </Row>
                 <Row>
-                  {moreArticles.length > 0 && <CardList to={'/news'} size='md' cards={moreArticles} more/>}
+                  {moreArticles.length > 0 && <CardList to={'/news'} size='md' cards={moreArticles} more />}
                 </Row>
                 <Row>
-                  {moreArticles.length > 0 && <CardMinList cards={moreArticles} more/>}
+                  {moreArticles.length > 0 && <CardMinList cards={moreArticles} more />}
                 </Row>
                 <Row>
                   {moreArticles.length > 0 && <CardList to={'/news'} size='md' cards={moreArticles} more />}

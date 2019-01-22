@@ -8,11 +8,8 @@ class NavElement extends PureComponent {
   render() {
     const { to, danger, footer, card, text, section } = this.props;
     return (
-      <NavLinkStyled exact to={to} danger={danger} footer={footer} card={card} text={text} section={section}>
-        {section 
-          ? section 
-          : text
-        }
+      <NavLinkStyled exact to={to} danger={danger} footer={footer} card={card} text={text} section={section} >
+        {section ? section : text}
       </NavLinkStyled>
     );
   };

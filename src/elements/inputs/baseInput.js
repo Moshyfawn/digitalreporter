@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 class BaseInput extends PureComponent {
   render() {
     return (
-      <Input name={this.props.name} value={this.props.value} type={this.props.type} placeholder={this.props.placeholder} onChange={this.props.onChange} onBlur={this.props.onBlur} />
+      <Input {...this.props} />
     );
   };
 };
@@ -13,9 +14,17 @@ BaseInput.defaultProps = {
   value: ''
 }
 
+
+BaseInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
+};
+
 const Input = styled.input`
   border: none;
-  background-color: #ffffff;
   font-size: 20px;
   font-weight: 300;
   padding: 0 10px 10px 10px;
@@ -24,7 +33,6 @@ const Input = styled.input`
 
   &::placeholder {
     color: #bfbfbf;
-    font-family: Roboto;
     font-weight: 300;
   }
 `;

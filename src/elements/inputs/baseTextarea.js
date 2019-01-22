@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 class BaseTextarea extends PureComponent {
   render() {
     return (
-      <Textarea name={this.props.name} value={this.props.value} type={this.props.type} placeholder={this.props.placeholder} onChange={this.props.onChange} onBlur={this.props.onBlur} />
+      <Textarea {...this.props} />
     );
   };
 };
@@ -12,5 +13,13 @@ class BaseTextarea extends PureComponent {
 const Textarea =styled.textarea`
   background-color: #ffffff;
 `;
+
+BaseTextarea.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
+};
 
 export default BaseTextarea;

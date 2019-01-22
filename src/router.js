@@ -33,7 +33,7 @@ export class Routes extends PureComponent {
         <AppRoute exact path='/login' layout={MainLayout} component={LoginPageContainer} />
         <AppRoute exact path='/articles/' layout={MainLayout} component={ArticlePageContainer} />
         <AppRoute exact path='/articles/:id' layout={MainLayout} component={ArticlePageContainer} />
-        <AppRoute exact path='/profile' layout={MainLayout} component={ProfilePageContainer} />
+        <AppRoute exact path='/profile' layout={AuthedLayout} component={ProfilePageContainer} />
       </Switch>
     )
   }
