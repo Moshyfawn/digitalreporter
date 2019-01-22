@@ -11,6 +11,7 @@ import {
   OKShareButton
 } from 'react-share';
 import styled from 'styled-components';
+import { switchProp, prop } from 'styled-tools';
 
 class IconLink extends PureComponent {
   renderSwitch = (item) => {
@@ -50,14 +51,16 @@ class IconLink extends PureComponent {
   }
   render() {
     const { media } = this.props;
-    const shareText = 'Поделиться'
+    const shareText = 'Поделиться';
     return (
       <Container>
         {media.map(item => (
-          <SocialLink key={item}>
-            {this.renderSwitch(item)}
-            <Text>{shareText}</Text>
-          </SocialLink>
+          <ButtonElement>
+            <SocialLink key={item} item={item} >
+              {this.renderSwitch(item)}
+              <Text>{shareText}</Text>
+            </SocialLink>
+          </ButtonElement>
           ))
         }
       </Container>
@@ -72,6 +75,12 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
+const ButtonElement = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 185px;
+`;
+
 const SocialLink = styled.a`
   display: flex;
   align-items: center;
@@ -80,11 +89,16 @@ const SocialLink = styled.a`
   min-width: 60px;
   max-width: 185px;
   flex: 0;
-  transition: flex 1s ease-in-out;
+  transition: flex 0.5s ease-in-out;
   &:hover {
     flex: 1;
   }
-  background-color: blue;
+  background-color: ${switchProp('item', {
+    facebook: prop('theme.colors.socials.facebook'), 
+    twitter: prop('theme.colors.socials.twitter'), 
+    vk: prop('theme.colors.socials.vk'),
+    ok: prop('theme.colors.socials.ok') 
+  })};
 `;
 
 const Text = styled.div`
