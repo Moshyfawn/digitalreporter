@@ -23,7 +23,7 @@ class MainPage extends PureComponent {
           <Divider />
           {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
           {smCards.length > 0 && <CardMinList cards={smCards} />}
-          <NavBigButton name='Все статьи' />
+          <NavBigButton text='Все статьи' />
           <Divider>Популярное</Divider>
           {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
           {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
