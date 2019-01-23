@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   flex: 1;
+  height: 50px;
 `;
 
 const InputIcon = styled.span`

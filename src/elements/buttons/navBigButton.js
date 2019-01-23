@@ -2,15 +2,15 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-class Button extends PureComponent {
+class navBigButton extends PureComponent {
   render() {
     return (
-      <NavLinkStyled exact to='/'>{this.props.name}</NavLinkStyled>
+      <NavElement exact to='/'>{this.props.text}</NavElement>
     );
   };
 };
 
-const NavLinkStyled = styled(NavLink)`
+const NavElement = styled(NavLink)`
   background-color: white;
   color: #131313;
   border: 1px solid #000000;
@@ -18,8 +18,6 @@ const NavLinkStyled = styled(NavLink)`
   font-size: 18px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  margin: 40px;
 `;
 
-export default Button;
+export default navBigButton;

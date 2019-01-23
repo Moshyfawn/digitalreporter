@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { ifProp, prop } from 'styled-tools';
+import { prop } from 'styled-tools';
 
 class Divider extends PureComponent {
   render() {

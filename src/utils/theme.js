@@ -10,9 +10,11 @@ export default {
     },
   },
   typo: {
+    primaryBlack: '#131313',
+    primaryWhite: '#ffffff'
   },
   shadows: {
-    cardShadow : '0 0 150px rgba(0,0,0,0.1) inset'
+    cardShadow : '0 0 150px rgba(0,0,0,0.2) inset'
   }
 }
 

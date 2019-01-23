@@ -4,17 +4,15 @@ import PageWrapper from '../../modals/pageWraper';
 import Divider from '../../elements/markup/divider';
 import CardMinList from '../../modals/lists/cardMinList';
 import CardList from '../../modals/lists/cardList';
-import Button from '../../elements/links/button';
+import NavBigButton from '../../elements/buttons/navBigButton';
 
 class MainPage extends PureComponent {
-  
-componentDidMount = () => {
-  this.props.getArticles();
-}
+  componentDidMount = () => {
+    this.props.getArticles();
+  }
 
   render () {
     const { lgCards, mdCards, smCards } = this.props
-    
     return (
       <PageWrapper>
         <Fragment>
@@ -25,7 +23,7 @@ componentDidMount = () => {
           <Divider />
           {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
           {smCards.length > 0 && <CardMinList cards={smCards} />}
-          <Button name='Все статьи' />
+          <NavBigButton name='Все статьи' />
           <Divider>Популярное</Divider>
           {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
           {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}

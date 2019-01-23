@@ -4,7 +4,7 @@ import PageWrapper from '../../modals/pageWraper';
 import Divider from '../../elements/markup/divider';
 import CardMinList from '../../modals/lists/cardMinList';
 import CardList from '../../modals/lists/cardList';
-import Button from '../../elements/links/button';
+import NavBigButton from '../../elements/buttons/navBigButton';
 
 class NewsPage extends PureComponent {
 
@@ -25,7 +25,7 @@ class NewsPage extends PureComponent {
           {mdCards.length > 0 && <CardList to={mdCards.section} size='md' cards={mdCards} />}
           <Divider />
           {smCards.length > 0 && <CardMinList cards={smCards} />}
-          <Button name='Все статьи' />
+          <NavBigButton text='Все статьи' />
           <Divider>Популярное</Divider>
           {mdCards.length > 0 && <CardList to={mdCards.section} size='md' cards={mdCards} />}
           {smCards.length > 0 && <CardList size='sm' cards={smCards} />}

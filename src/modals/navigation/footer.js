@@ -1,15 +1,9 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import NavElement from '../../elements/links/navElement';
+import NavButton from '../../elements/buttons/navButton';
 
 import logo from '../../assets/logo.png'
-import facebook from '../../assets/facebook.svg'
-import vk from '../../assets/vk.svg'
-import twitter from '../../assets/twitter.svg'
-import ok from '../../assets/ok.svg'
-
-import Icon from '../../elements/Icons/icon';
+import IconLink from 'src/elements/buttons/iconLink';
 
 
 
@@ -18,51 +12,22 @@ class Footer extends PureComponent {
   render () {
     return (
       <Container>
-        <Grid fluid>
-          <Row >
-            <Col lg={1}>
-                <Logo  src={logo} alt="Logo Type" width='103px'/>
-            </Col>
-            <Col lgOffset={2} lg={1}>
-              <Row>
-                <NavElement text='Новости' to={'/news'} footer/>
-              </Row>
-              <Row>
-                <NavElement text='Рецензии' to={'/reviews'} footer/>
-              </Row>
-              <Row>
-                <NavElement text='Мнение' to={'/meaning'} footer/>
-              </Row>
-              <Row>
-                <NavElement text='Лайфхак' to={'/lifehack'} footer/>
-              </Row>
-            </Col>
-            <Col lgOffset={1} lg={2}>
-              <Row>
-                <NavElement text='О нас' to={'/about'} footer/>
-              </Row>
-              <Row>
-                <NavElement text='Контакты' to={'/contacts'} footer/>
-              </Row>
-              <Row>
-                <NavElement text='Заказать рекламу' to={'/ad'} footer/>
-              </Row>
-            </Col>
-            <Col lgOffset={3}>
-              <Row start='lg'>
-                <Socials>Мы в соцсетях:</Socials>
-              </Row>
-              <Row start='lg'>
-                <Icons>
-                  <Icon src={facebook} alt='Facebook' to={'/facebook'}/>
-                  <Icon src={vk} alt='VKontakte' to={'/vkontakte'}/>
-                  <Icon src={twitter} alt='Twitter' to={'/twitter'}/>
-                  <Icon src={ok} alt='OK' to={'/ok'}/>
-                </Icons>
-              </Row>
-            </Col>
-          </Row>
-        </Grid>
+        <Logo  src={logo} alt="Logo Type" />
+        <Section>
+          <NavButton text='Новости' to={'/news'} color='white' />
+          <NavButton text='Рецензии' to={'/reviews'} color='white' />
+          <NavButton text='Мнение' to={'/meaning'} color='white' />
+          <NavButton text='Лайфхак' to={'/lifehack'} color='white' />
+        </Section>
+        <Section>
+          <NavButton text='О нас' to={'/about'} color='white' />
+          <NavButton text='Контакты' to={'/contacts'} color='white' />
+          <NavButton text='Заказать рекламу' to={'/ad'} color='white' />
+        </Section>
+        <Socials>
+          <Text>Мы в соцсетях:</Text>
+          <IconLink media={['facebook', 'ok', 'vk', 'twitter']} />
+        </Socials>
       </Container>
     )
   }
@@ -74,22 +39,32 @@ Footer.propTypes = {
 const Container = styled.div`
   padding: 31px 140px 76px 140px;
   margin: 2em 0 0 0;
-  flex-shrink: 0;
   background-color: #272633;
+  display: flex;
+  flex-shrink: 0;
 `;
 
-const Icons = styled.div`
+const Section = styled.div`
+  margin-right: 70px;
+  & > * {
+    padding-bottom: 15px;
+  }
+`;
+
+const Socials = styled.div`
+  margin-left: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 9px;
-  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const Logo = styled.img`
+  min-width: 148px;
+  width: 148px;
+  margin-right: 120px;
 `;
 
-const Socials = styled.p`
+const Text = styled.div`
   font-size: 18px;
   color: #ffffff;
 `;

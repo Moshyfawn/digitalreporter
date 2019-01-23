@@ -1,53 +1,37 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import { logout } from '../../store/user/userReducer';
 
-import NavElement from '../../elements/links/navElement';
 import logo from '../../assets/logo.png'
 import InputSearch from '../../elements/inputs/inputSearch';
-import ExitButton from '../../elements/buttons/exitButton';
+import LoginButton from '../../elements/buttons/LoginButton';
+import NavButton from 'src/elements/buttons/navButton';
 
 class Header extends PureComponent {
 
   handleClick = (e) => {
-    this.props.logout();
+    if (this.props.isAuthenticated) {
+      this.props.logout();
+    } else 
+      window.location.href = '/login';
   }
 
   render () {
+    const { isAuthenticated } = this.props;
     return (
       <Container>
-        <Grid fluid>
-          <Row top="lg">
-            <Col lg>
-              <Logo src={logo} alt="Logo Type" width='103px'/>
-            </Col>
-            <Col lg={10}>
-              <Row>
-                <InputSearch />
-              </Row>
-              <Row>
-                <Col lg={3}>
-                  <NavMenu>
-                    <NavElement text='Новости' to={'/news'}/>
-                    <NavElement text='Рецензии' to={'/reviews'}/>
-                    <NavElement text='Мнение' to={'/meaning'}/>
-                    <NavElement text='Лайфхак' to={'/lifehack'}/>
-                  </NavMenu>
-                </Col>
-                <Col lgOffset={8} lg={1}>
-                  <Login>
-                    {this.props.isAuthenticated
-                      ? <ExitButton text='Выйти' onClick={this.handleClick} />
-                      : <NavElement text='Войти' to='/login' danger />
-                    }
-                  </Login>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Grid>
+        <Logo src={logo} alt="Logo Type" />
+        <Section>
+            <InputSearch />
+          <NavMenu>
+            <NavButton text='Новости' to={'/news'} color='black' />
+            <NavButton text='Рецензии' to={'/reviews'} color='black' />
+            <NavButton text='Мнение' to={'/meaning'} color='black' />
+            <NavButton text='Лайфхак' to={'/lifehack'} color='black' />
+            <LoginButton text={isAuthenticated ? 'Выйти' : 'Войти'} onClick={this.handleClick} />
+          </NavMenu>
+        </Section>
       </Container>
     )
   }
@@ -57,25 +41,31 @@ Header.propTypes = {
 }
 
 const Container = styled.div`
-  margin-bottom: 60px;
   flex-shrink: 0;
-  padding: 31px 64px 0 64px;
+  display: flex;
+  padding: 31px 63px;
 `;
 
-const NavMenu = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 23px;
-`;
-
-const Login = styled.div`
-  display: flex;
-  justify-content: right;
-  margin-top: 23px;
+const Section = styled.div`
+  flex-basis: 100%;
 `;
 
 const Logo = styled.img`
-    
+  width: 103px;
+  margin-right: 70px;
+`; 
+
+const NavMenu = styled.div`
+  margin-top: 23px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  & > :not(:last-child) {
+    margin-right: 23px;
+  }
+  & > :last-child {
+    margin-left: auto;
+  }
 `;
 
 const mapStateToProps = (state) => {

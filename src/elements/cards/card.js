@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { switchProp, prop } from 'styled-tools';
 import { NavLink } from 'react-router-dom';
 
-import NavElement from '../links/navElement';
+import NavButton from '../buttons/navButton';
 
 class Card extends PureComponent {
 
@@ -28,9 +28,7 @@ class Card extends PureComponent {
     return ( 
       <Container exact to={`/articles/${id}`} img={img} size={size}>
         {size !== 'sm' && !more &&
-            <NavElementStyled>
-                <NavElement card to={this.getPath()} section={section} />
-            </NavElementStyled>
+          <NavButton to={this.getPath()} text={section} color='white' />
         }
         <Article size={size} >
           {size === 'lg' 
@@ -64,7 +62,7 @@ const Container = styled(NavLink)`
   padding: 20px 25px;
   margin: 10px 20px 10px 0;
   color: #ffffff;
-  filter: grayscale(20%);
+  filter: grayscale(30%);
   box-shadow: none;
   transition: box-shadow 0.1s ease-in-out, filter 0.1s ease-in-out;
 
@@ -107,10 +105,6 @@ const Date = styled.p`
   font-size: 18px;
   font-weight: 400;
   margin-top: 14px;
-`;
-
-const NavElementStyled = styled.div`
-  display: flex;
 `;
 
 const Article = styled.div`
