@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import Avatar from 'src/elements/Icons/avatar';
+import { Avatar } from 'src/elements';
 import UserInfo from 'src/elements/user/userInfo';
 
 // maybe use .map to go about not rendering missing info

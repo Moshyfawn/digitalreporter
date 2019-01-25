@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { switchProp, prop } from 'styled-tools';
 import { NavLink } from 'react-router-dom';
 
-import NavButton from '../buttons/navButton';
+import { NavButton } from 'src/elements'
 
 class Card extends PureComponent {
 

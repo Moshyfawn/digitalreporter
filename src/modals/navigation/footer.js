@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components';
-import NavButton from '../../elements/buttons/navButton';
 
 import logo from '../../assets/logo.png'
-import IconLink from 'src/elements/buttons/iconLink';
-
-
+import { IconLink, NavButton } from 'src/elements';
 
 class Footer extends PureComponent {
 

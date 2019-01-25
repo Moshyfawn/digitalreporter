@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { logout } from '../../store/user/userReducer';
 
 import logo from '../../assets/logo.png'
-import InputSearch from '../../elements/inputs/inputSearch';
-import LoginButton from '../../elements/buttons/LoginButton';
-import NavButton from 'src/elements/buttons/navButton';
+
+import { NavButton, InputSearch, LoginButton } from 'src/elements';
 
 class Header extends PureComponent {
 

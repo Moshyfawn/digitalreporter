@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import Card from '../../elements/cards/card';
+import { Card } from 'src/elements';
 
 class CardList extends PureComponent {
     // Card will get an array of cards from MainPage.js 

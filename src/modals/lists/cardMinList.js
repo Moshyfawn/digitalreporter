@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components';
 
-import CardMin from '../../elements/cards/cardMin';
+import { CardMin } from 'src/elements';
 
 class CardMinList extends PureComponent {
   render() {

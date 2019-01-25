@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import BaseInput from './baseInput';
-import BaseTextarea from './baseTextarea';
+import { BaseTextarea, BaseInput } from 'src/elements';
 
 // Give it a 'type' so it knows what to render: input/textarea
 // Needs a new textarea component

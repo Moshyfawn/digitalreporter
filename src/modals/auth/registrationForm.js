@@ -3,11 +3,7 @@ import Yup from 'src/utils/yup';
 import { ifProp } from 'styled-tools';
 import styled from 'styled-components';
 
-import BaseForm from 'src/elements/forms/BaseForm';
-
-import InputGroup from 'src/elements/inputs/inputGroup';
-
-import Button from '../../elements/buttons/button';
+import { Button, BaseForm, InputGroup } from 'src/elements';
 
 
 export default class RegistrationForm extends PureComponent {

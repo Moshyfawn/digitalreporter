@@ -3,9 +3,9 @@ import Yup from 'src/utils/yup';
 import styled from 'styled-components';
 import { ifProp, prop } from 'styled-tools';
 
-import BaseForm from 'src/elements/forms/BaseForm';
-import InputGroup from 'src/elements/inputs/inputGroup';
-import Button from '../../elements/buttons/button';
+
+import { InputGroup, BaseForm } from 'src/elements';
+import { Button } from 'src/elements';
 
 export default class LoginForm extends PureComponent {
 

@@ -4,10 +4,9 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import PageWrapper from '../../modals/pageWraper';
 import Article from 'src/modals/articles/article';
 import PopularList from 'src/modals/lists/popularList';
-import Divider from 'src/elements/markup/divider';
 import CardList from 'src/modals/lists/cardList';
 import CardMinList from 'src/modals/lists/cardMinList';
-import ShareButton from 'src/elements/buttons/ShareButton'
+import { ShareButton, Divider } from 'src/elements';
 
 class ArticlePage extends PureComponent {
   // this.props.match.params.id

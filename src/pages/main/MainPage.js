@@ -1,10 +1,10 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
+import styled from 'styled-components';
 
 import PageWrapper from '../../modals/pageWraper';
-import Divider from '../../elements/markup/divider';
 import CardMinList from '../../modals/lists/cardMinList';
 import CardList from '../../modals/lists/cardList';
-import NavBigButton from '../../elements/buttons/navBigButton';
+import { Divider, NavBigButton } from 'src/elements';
 
 class MainPage extends PureComponent {
   componentDidMount = () => {
@@ -15,23 +15,34 @@ class MainPage extends PureComponent {
     const { lgCards, mdCards, smCards } = this.props
     return (
       <PageWrapper>
-        <Fragment>
-          {smCards.length > 0 && <CardMinList cards={smCards} />}
-          <Divider />
-          {lgCards.length > 0 && <CardList size='lg' cards={lgCards} />}
-          {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
-          <Divider />
-          {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
-          {smCards.length > 0 && <CardMinList cards={smCards} />}
-          <NavBigButton text='Все статьи' />
-          <Divider>Популярное</Divider>
-          {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
-          {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
-          {smCards.length > 0 && <CardMinList cards={smCards} />}
-        </Fragment>
+        <Break />
+        {smCards.length > 0 && <CardMinList cards={smCards} />}
+        <Break />
+        <Divider />
+        <Break />
+        {lgCards.length > 0 && <CardList size='lg' cards={lgCards} />}
+        {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
+        <Break />
+        <Divider />
+        <Break />
+        {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
+        {smCards.length > 0 && <CardMinList cards={smCards} />}
+        <Break />
+        <NavBigButton text='Все статьи' />
+        <Break />
+        <Divider>Популярное</Divider>
+        <Break />
+        {mdCards.length > 0 && <CardList size='md' cards={mdCards} />}
+        {smCards.length > 0 && <CardList  size='sm' cards={smCards} />}
+        {smCards.length > 0 && <CardMinList cards={smCards} />}
+        <Break />
       </PageWrapper>
     )
   }
 }
+
+const Break = styled.div`
+  margin-top: 25px;
+`;
 
 export default MainPage

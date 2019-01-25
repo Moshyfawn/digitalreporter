@@ -1,10 +1,9 @@
 import React, { PureComponent, Fragment } from 'react'
 
 import PageWrapper from '../../modals/pageWraper';
-import Divider from '../../elements/markup/divider';
 import CardMinList from '../../modals/lists/cardMinList';
 import CardList from '../../modals/lists/cardList';
-import NavBigButton from '../../elements/buttons/navBigButton';
+import { NavBigButton, Divider } from 'src/elements';
 
 class NewsPage extends PureComponent {
 

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import PopularCard from 'src/elements/cards/popularCard';
+
+import { PopularCard } from 'src/elements';
 
 class PopularList extends PureComponent {
   render() {
